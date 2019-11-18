@@ -3,9 +3,16 @@ server:
   port: 9001
 spring:
   datasource:
-    username: root
-    password: 123456
-    url: jdbc:mysql://192.168.0.200:3311/eovademo_test3.27?characterEncoding=utf-8&useSSL=true&serverTimezone=UTC
+    one:
+      username: root
+      password: 123456
+      type: com.alibaba.druid.pool.DruidDataSource
+      url: jdbc:mysql://192.168.0.200:3311/eovademo_test3.27?characterEncoding=utf-8&useSSL=true&serverTimezone=UTC
+    two:
+      username: root
+      password: 123456
+      type: com.alibaba.druid.pool.DruidDataSource
+      url: jdbc:mysql://192.168.0.200:3311/eova_test3.27?characterEncoding=utf-8&useSSL=true&serverTimezone=UTC
   jpa:
     show-sql: true
   servlet:

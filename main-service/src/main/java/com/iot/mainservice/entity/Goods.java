@@ -20,9 +20,9 @@ public class Goods implements Serializable {
     private Integer num;//剩余数量
     private Integer alarmvalue;//预警值
     private String unit;//计量单位
-
+    @Column(name = "agriculturaltype_id")
     private Integer agriculturaltypeId;//农资类型
-    @JoinColumn(name = "agriculturaltypeId",referencedColumnName = "id",insertable = false,updatable = false)
+    @JoinColumn(name = "agriculturaltype_id",referencedColumnName = "id",insertable = false,updatable = false)
     @OneToOne
     private AgriculturalType agriculturalType;
 
@@ -57,14 +57,10 @@ public class Goods implements Serializable {
 
     @Column(name = "org_id")
     private Integer orgId;
-    @OneToOne(targetEntity = Org.class)
-    @JoinColumn(name="org_id",referencedColumnName="id",insertable = false,updatable = false)
-    private Org org;
+
     @Column(name = "area_id")
     private String areaId;
-    @OneToOne(targetEntity = Area.class)
-    @JoinColumn(name = "area_id",referencedColumnName = "id",insertable = false,updatable = false)
-    private Area area;
+
 
     @Override
     public String toString() {
@@ -98,9 +94,7 @@ public class Goods implements Serializable {
                 ", quality_standard_id='" + quality_standard_id + '\'' +
                 ", qualityStandard=" + qualityStandard +
                 ", orgId=" + orgId +
-                ", org=" + org +
                 ", areaId='" + areaId + '\'' +
-                ", area=" + area +
                 '}';
     }
 
@@ -336,13 +330,6 @@ public class Goods implements Serializable {
         this.orgId = orgId;
     }
 
-    public Org getOrg() {
-        return org;
-    }
-
-    public void setOrg(Org org) {
-        this.org = org;
-    }
 
     public String getAreaId() {
         return areaId;
@@ -352,11 +339,5 @@ public class Goods implements Serializable {
         this.areaId = areaId;
     }
 
-    public Area getArea() {
-        return area;
-    }
 
-    public void setArea(Area area) {
-        this.area = area;
-    }
 }

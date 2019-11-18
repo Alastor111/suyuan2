@@ -22,14 +22,10 @@ public class Supplier {
 
     @Column(name = "org_id")
     private Integer orgId;
-    @OneToOne(targetEntity = Org.class)
-    @JoinColumn(name="org_id",referencedColumnName="id",insertable = false,updatable = false)
-    private Org org;
+
     @Column(name = "area_id")
     private String areaId;
-    @OneToOne(targetEntity = Area.class)
-    @JoinColumn(name = "area_id",referencedColumnName = "id",insertable = false,updatable = false)
-    private Area area;
+
 
     @Override
     public String toString() {
@@ -40,9 +36,7 @@ public class Supplier {
                 ", phone='" + phone + '\'' +
                 ", address='" + address + '\'' +
                 ", orgId=" + orgId +
-                ", org=" + org +
                 ", areaId='" + areaId + '\'' +
-                ", area=" + area +
                 '}';
     }
 
@@ -94,13 +88,6 @@ public class Supplier {
         this.orgId = orgId;
     }
 
-    public Org getOrg() {
-        return org;
-    }
-
-    public void setOrg(Org org) {
-        this.org = org;
-    }
 
     public String getAreaId() {
         return areaId;
@@ -110,11 +97,5 @@ public class Supplier {
         this.areaId = areaId;
     }
 
-    public Area getArea() {
-        return area;
-    }
 
-    public void setArea(Area area) {
-        this.area = area;
-    }
 }

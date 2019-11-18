@@ -19,14 +19,10 @@ public class ProductType {
     private String description;
     @Column(name = "org_id")
     private Integer orgId;
-    @OneToOne(targetEntity = Org.class)
-    @JoinColumn(name="org_id",referencedColumnName="id",insertable = false,updatable = false)
-    private Org org;
+
     @Column(name = "area_id")
     private String areaId;
-    @OneToOne(targetEntity = Area.class)
-    @JoinColumn(name = "area_id",referencedColumnName = "id",insertable = false,updatable = false)
-    private Area area;
+
 
     @Override
     public String toString() {
@@ -36,9 +32,7 @@ public class ProductType {
                 ", name='" + name + '\'' +
                 ", description='" + description + '\'' +
                 ", orgId=" + orgId +
-                ", org=" + org +
                 ", areaId='" + areaId + '\'' +
-                ", area=" + area +
                 '}';
     }
 
@@ -66,9 +60,6 @@ public class ProductType {
         this.orgId = orgId;
     }
 
-    public void setOrg(Org org) {
-        this.org = org;
-    }
 
     public String getAreaId() {
         return areaId;
@@ -78,9 +69,6 @@ public class ProductType {
         this.areaId = areaId;
     }
 
-    public void setArea(Area area) {
-        this.area = area;
-    }
 
     public Integer getId() {
         return this.id;
@@ -102,13 +90,5 @@ public class ProductType {
     }
 
 
-    public Org getOrg() {
-        return this.org;
-    }
-
-
-    public Area getArea() {
-        return this.area;
-    }
 
 }

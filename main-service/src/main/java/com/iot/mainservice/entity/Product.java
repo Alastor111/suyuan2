@@ -35,14 +35,10 @@ public class Product {
 
     @Column(name = "org_id")
     private Integer orgId;
-    @OneToOne(targetEntity = Org.class)
-    @JoinColumn(name="org_id",referencedColumnName="id",insertable = false,updatable = false)
-    private Org org;
+
     @Column(name = "area_id")
     private String areaId;
-    @OneToOne(targetEntity = Area.class)
-    @JoinColumn(name = "area_id",referencedColumnName = "id",insertable = false,updatable = false)
-    private Area area;
+
 
     @Override
     public String toString() {
@@ -60,9 +56,7 @@ public class Product {
                 ", seedsource='" + seedsource + '\'' +
                 ", quality_standard_id='" + quality_standard_id + '\'' +
                 ", orgId=" + orgId +
-                ", org=" + org +
                 ", areaId='" + areaId + '\'' +
-                ", area=" + area +
                 '}';
     }
 
@@ -170,13 +164,6 @@ public class Product {
         this.orgId = orgId;
     }
 
-    public Org getOrg() {
-        return org;
-    }
-
-    public void setOrg(Org org) {
-        this.org = org;
-    }
 
     public String getAreaId() {
         return areaId;
@@ -186,11 +173,5 @@ public class Product {
         this.areaId = areaId;
     }
 
-    public Area getArea() {
-        return area;
-    }
 
-    public void setArea(Area area) {
-        this.area = area;
-    }
 }

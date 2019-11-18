@@ -26,14 +26,10 @@ public class Farm {
     private  Integer baseinfo_id;
     @Column(name = "org_id")
     private Integer orgId;
-    @OneToOne(targetEntity = Org.class)
-    @JoinColumn(name="org_id",referencedColumnName="id",insertable = false,updatable = false)
-    private Org org;
+
     @Column(name = "area_id")
     private String areaId;
-    @OneToOne(targetEntity = Area.class)
-    @JoinColumn(name = "area_id",referencedColumnName = "id",insertable = false,updatable = false)
-    private Area area;
+
 
     @Override
     public String toString() {
@@ -46,9 +42,7 @@ public class Farm {
                 ", collector_ids=" + collector_ids +
                 ", baseinfo_id=" + baseinfo_id +
                 ", orgId=" + orgId +
-                ", org=" + org +
                 ", areaId='" + areaId + '\'' +
-                ", area=" + area +
                 '}';
     }
 
@@ -116,13 +110,6 @@ public class Farm {
         this.orgId = orgId;
     }
 
-    public Org getOrg() {
-        return org;
-    }
-
-    public void setOrg(Org org) {
-        this.org = org;
-    }
 
     public String getAreaId() {
         return areaId;
@@ -132,11 +119,5 @@ public class Farm {
         this.areaId = areaId;
     }
 
-    public Area getArea() {
-        return area;
-    }
 
-    public void setArea(Area area) {
-        this.area = area;
-    }
 }

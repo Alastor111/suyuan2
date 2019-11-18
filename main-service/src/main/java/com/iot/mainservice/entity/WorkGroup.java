@@ -20,17 +20,14 @@ public class WorkGroup {
 
     @Column(name = "org_id")
     private Integer orgId;
-    @OneToOne(targetEntity = Org.class)
-    @JoinColumn(name="org_id",referencedColumnName="id",insertable = false,updatable = false)
-    private Org org;
+
     @Column(name = "area_id")
     private String areaId;
-    @OneToOne(targetEntity = Area.class)
-    @JoinColumn(name = "area_id",referencedColumnName = "id",insertable = false,updatable = false)
-    private Area area;
+
+    @Column(name = "factory_id")
     private Integer factoryId;
     @OneToOne
-    @JoinColumn(name = "factoryId",referencedColumnName = "id",insertable = false,updatable = false)
+    @JoinColumn(name = "factory_id",referencedColumnName = "id",insertable = false,updatable = false)
     private  Factory factory;
 
     @Override
@@ -41,9 +38,7 @@ public class WorkGroup {
                 ", name='" + name + '\'' +
                 ", description='" + description + '\'' +
                 ", orgId=" + orgId +
-                ", org=" + org +
                 ", areaId='" + areaId + '\'' +
-                ", area=" + area +
                 ", factoryId=" + factoryId +
                 ", factory=" + factory +
                 '}';
@@ -97,21 +92,8 @@ public class WorkGroup {
         this.description = description;
     }
 
-    public Org getOrg() {
-        return org;
-    }
 
-    public void setOrg(Org org) {
-        this.org = org;
-    }
 
-    public Area getArea() {
-        return area;
-    }
-
-    public void setArea(Area area) {
-        this.area = area;
-    }
 
     public Integer getId() {
         return id;

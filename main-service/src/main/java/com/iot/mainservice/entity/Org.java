@@ -43,7 +43,6 @@ public class Org {
                 ", filed_lz='" + filed_lz + '\'' +
                 ", filed_cb='" + filed_cb + '\'' +
                 ", areaId='" + areaId + '\'' +
-                ", area=" + area +
                 '}';
     }
 
@@ -103,17 +102,9 @@ public class Org {
         this.areaId = areaId;
     }
 
-    public Area getArea() {
-        return area;
-    }
 
-    public void setArea(Area area) {
-        this.area = area;
-    }
 
-    @OneToOne(targetEntity = Area.class)
-    @JoinColumn(name = "area_id",referencedColumnName = "id",insertable = false,updatable = false)
-    private Area area;
+
 
     public  Integer getId() {
         return this.id;

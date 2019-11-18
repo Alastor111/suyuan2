@@ -20,14 +20,10 @@ public  class QualityStandard {
 
     @Column(name = "org_id")
     private Integer orgId;
-    @OneToOne(targetEntity = Org.class)
-    @JoinColumn(name="org_id",referencedColumnName="id",insertable = false,updatable = false)
-    private Org org;
+
     @Column(name = "area_id")
     private String areaId;
-    @OneToOne(targetEntity = Area.class)
-    @JoinColumn(name = "area_id",referencedColumnName = "id",insertable = false,updatable = false)
-    private Area area;
+
 
     @Override
     public String toString() {
@@ -37,9 +33,7 @@ public  class QualityStandard {
                 ", type='" + type + '\'' +
                 ", decribe='" + decribe + '\'' +
                 ", orgId=" + orgId +
-                ", org=" + org +
                 ", areaId='" + areaId + '\'' +
-                ", area=" + area +
                 '}';
     }
 
@@ -75,14 +69,6 @@ public  class QualityStandard {
         this.decribe = decribe;
     }
 
-    public void setOrg(Org org) {
-        this.org = org;
-    }
-
-    public void setArea(Area area) {
-        this.area = area;
-    }
-
     public Integer getId() {
         return this.id;
     }
@@ -100,16 +86,6 @@ public  class QualityStandard {
 
     public String getDecribe() {
         return this.decribe;
-    }
-
-
-    public Org getOrg() {
-        return this.org;
-    }
-
-
-    public Area getArea() {
-        return this.area;
     }
 
 }
