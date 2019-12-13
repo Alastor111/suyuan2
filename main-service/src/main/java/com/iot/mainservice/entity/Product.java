@@ -16,14 +16,9 @@ public class Product {
     private String name;
 
     private Integer product_id;
-    @OneToOne(targetEntity = ProductType.class)
-    @JoinColumn(name="product_id",referencedColumnName="id",insertable = false,updatable = false)
-    private ProductType productType;
 
     private Integer field_id;
-    @OneToOne(targetEntity = Field.class)
-    @JoinColumn(name="field_id",referencedColumnName="id",insertable = false,updatable = false)
-    private Field field;
+
     private String description;
     private String imgurl;
 
@@ -47,9 +42,7 @@ public class Product {
                 ", code='" + code + '\'' +
                 ", name='" + name + '\'' +
                 ", product_id=" + product_id +
-                ", productType=" + productType +
                 ", field_id=" + field_id +
-                ", field=" + field +
                 ", description='" + description + '\'' +
                 ", imgurl='" + imgurl + '\'' +
                 ", isGMO=" + isGMO +
@@ -92,28 +85,12 @@ public class Product {
         this.product_id = product_id;
     }
 
-    public ProductType getProductType() {
-        return productType;
-    }
-
-    public void setProductType(ProductType productType) {
-        this.productType = productType;
-    }
-
     public Integer getField_id() {
         return field_id;
     }
 
     public void setField_id(Integer field_id) {
         this.field_id = field_id;
-    }
-
-    public Field getField() {
-        return field;
-    }
-
-    public void setField(Field field) {
-        this.field = field;
     }
 
     public String getDescription() {

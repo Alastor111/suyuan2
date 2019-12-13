@@ -41,19 +41,10 @@ public class Goods implements Serializable {
     private String rfid; //RFID标签号
 
     private Integer store_id;
-    @JoinColumn(name = "store_id",referencedColumnName = "id",insertable = false,updatable = false)
-    @OneToOne
-    private Store store;
 
     private Integer supplier_id;
-    @JoinColumn(name = "supplier_id",referencedColumnName = "id",insertable = false,updatable = false)
-    @OneToOne
-    private Supplier supplier;
 
     private String quality_standard_id;
-    @JoinColumn(name = "quality_standard_id",referencedColumnName = "id",insertable = false,updatable = false)
-    @OneToOne
-    private QualityStandard qualityStandard;
 
     @Column(name = "org_id")
     private Integer orgId;
@@ -88,11 +79,8 @@ public class Goods implements Serializable {
                 ", buydate=" + buydate +
                 ", rfid='" + rfid + '\'' +
                 ", store_id=" + store_id +
-                ", store=" + store +
                 ", supplier_id=" + supplier_id +
-                ", supplier=" + supplier +
                 ", quality_standard_id='" + quality_standard_id + '\'' +
-                ", qualityStandard=" + qualityStandard +
                 ", orgId=" + orgId +
                 ", areaId='" + areaId + '\'' +
                 '}';
@@ -282,14 +270,6 @@ public class Goods implements Serializable {
         this.store_id = store_id;
     }
 
-    public Store getStore() {
-        return store;
-    }
-
-    public void setStore(Store store) {
-        this.store = store;
-    }
-
     public Integer getSupplier_id() {
         return supplier_id;
     }
@@ -298,28 +278,12 @@ public class Goods implements Serializable {
         this.supplier_id = supplier_id;
     }
 
-    public Supplier getSupplier() {
-        return supplier;
-    }
-
-    public void setSupplier(Supplier supplier) {
-        this.supplier = supplier;
-    }
-
     public String getQuality_standard_id() {
         return quality_standard_id;
     }
 
     public void setQuality_standard_id(String quality_standard_id) {
         this.quality_standard_id = quality_standard_id;
-    }
-
-    public QualityStandard getQualityStandard() {
-        return qualityStandard;
-    }
-
-    public void setQualityStandard(QualityStandard qualityStandard) {
-        this.qualityStandard = qualityStandard;
     }
 
     public Integer getOrgId() {

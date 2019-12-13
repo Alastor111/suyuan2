@@ -1,11 +1,15 @@
 package com.iot.mainservice.controller;
 
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.iot.mainservice.entity.Goods;
 import com.iot.mainservice.service.GoodsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.List;
 
 @RestController
@@ -23,8 +27,20 @@ public class GoodsController {
         return goodsService.findAllByOrgId(orgId);
     }
     @PostMapping("/")
-    public Goods save(@RequestBody Goods goods){
-        return goodsService.save(goods);
+    public Goods save(@RequestParam("file") MultipartFile file, String json){
+        Goods goods;
+        Goods goods1 = null;
+        try {
+            String fileName = file.getOriginalFilename();
+            file.transferTo(new File(fileName));
+            goods = new ObjectMapper().readValue(json,Goods.class);
+            //TODO 放到服务器上可以取消注释
+            goods.setImgurl(fileName);
+            goods1 = goodsService.save(goods);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return goods1;
     }
     @DeleteMapping("/{goodsId}")
     public void deleteById(@PathVariable Integer goodsId) {

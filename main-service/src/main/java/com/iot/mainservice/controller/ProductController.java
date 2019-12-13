@@ -34,15 +34,15 @@ public class ProductController {
         return productService.findAllByOrgId(orgId);
     }
     @PostMapping("/")
-    public Product save (@RequestParam("file") MultipartFile file,String json) throws IOException {
-        String fileName = file.getOriginalFilename();
-        file.transferTo(new File(fileName));
+    public Product save (@RequestParam("file") MultipartFile file,String json) {
         Product product;
         Product product1 = null;
         try {
+            String fileName = file.getOriginalFilename();
+            file.transferTo(new File(fileName));
             product = new ObjectMapper().readValue(json,Product.class);
             //TODO 放到服务器上可以取消注释
-//            product.setImgurl(fileName);
+            product.setImgurl(fileName);
              product1 = productService.save(product);
         } catch (IOException e) {
             e.printStackTrace();

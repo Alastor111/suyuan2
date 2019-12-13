@@ -29,9 +29,6 @@ public class EovaUser {
     @Basic
     @Column(name = "area_id", nullable = true)
     private Integer areaId;
-    @Basic
-    @Column(name = "ssouser_id", nullable = true, length = 20)
-    private String ssouserId;
 
 
     public Integer getId() {
@@ -96,15 +93,6 @@ public class EovaUser {
         this.areaId = areaId;
     }
 
-
-    public String getSsouserId() {
-        return ssouserId;
-    }
-
-    public void setSsouserId(String ssouserId) {
-        this.ssouserId = ssouserId;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -116,13 +104,12 @@ public class EovaUser {
                 Objects.equals(loginPwd, eovaUser.loginPwd) &&
                 Objects.equals(orgId, eovaUser.orgId) &&
                 Objects.equals(orgwlId, eovaUser.orgwlId) &&
-                Objects.equals(areaId, eovaUser.areaId) &&
-                Objects.equals(ssouserId, eovaUser.ssouserId);
+                Objects.equals(areaId, eovaUser.areaId);
     }
 
     @Override
     public int hashCode() {
 
-        return Objects.hash(id, loginId, loginPwd, rid, orgId, orgwlId, areaId, ssouserId);
+        return Objects.hash(id, loginId, loginPwd, rid, orgId, orgwlId, areaId);
     }
 }

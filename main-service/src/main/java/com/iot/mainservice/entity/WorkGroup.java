@@ -26,9 +26,9 @@ public class WorkGroup {
 
     @Column(name = "factory_id")
     private Integer factoryId;
-    @OneToOne
-    @JoinColumn(name = "factory_id",referencedColumnName = "id",insertable = false,updatable = false)
-    private  Factory factory;
+//    @OneToOne
+//    @JoinColumn(name = "factory_id",referencedColumnName = "id",insertable = false,updatable = false)
+//    private  Factory factory;
 
     @Override
     public String toString() {
@@ -40,7 +40,6 @@ public class WorkGroup {
                 ", orgId=" + orgId +
                 ", areaId='" + areaId + '\'' +
                 ", factoryId=" + factoryId +
-                ", factory=" + factory +
                 '}';
     }
 
@@ -103,11 +102,4 @@ public class WorkGroup {
         this.id = id;
     }
 
-    public Factory getFactory() {
-        return factory;
-    }
-
-    public void setFactory(Factory factory) {
-        this.factory = factory;
-    }
 }

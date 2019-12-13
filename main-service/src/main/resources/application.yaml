@@ -1,18 +1,18 @@
 
 server:
-  port: 9001
+  port: 19001
 spring:
   datasource:
     one:
       username: root
-      password: 123456
+      password: 65260018@Iot
       type: com.alibaba.druid.pool.DruidDataSource
-      url: jdbc:mysql://192.168.0.200:3311/eovademo_test3.27?characterEncoding=utf-8&useSSL=true&serverTimezone=UTC
+      url: jdbc:mysql://117.78.41.92:3311/eovademo_sy?characterEncoding=utf-8&useSSL=true&serverTimezone=UTC
     two:
       username: root
-      password: 123456
+      password: 65260018@Iot
       type: com.alibaba.druid.pool.DruidDataSource
-      url: jdbc:mysql://192.168.0.200:3311/eova_test3.27?characterEncoding=utf-8&useSSL=true&serverTimezone=UTC
+      url: jdbc:mysql://117.78.41.92:3311/eova_sy?characterEncoding=utf-8&useSSL=true&serverTimezone=UTC
   jpa:
     show-sql: true
   servlet:

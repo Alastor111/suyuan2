@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 
 @Service
@@ -17,6 +18,11 @@ public class GoodsServiceImpl implements GoodsService {
     @Autowired
     public GoodsServiceImpl(GoodsRepository goodsRepository) {
         this.goodsRepository = goodsRepository;
+    }
+
+    @Override
+    public Optional<Goods> findById(Integer id) {
+        return goodsRepository.findById(id);
     }
 
     public List<Goods> findAllByOrgId(Integer orgId){

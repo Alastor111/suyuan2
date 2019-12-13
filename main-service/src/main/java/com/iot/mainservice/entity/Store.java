@@ -23,9 +23,6 @@ public class Store implements Serializable {
     @JoinColumn(name = "factory_id",referencedColumnName = "id",insertable = false,updatable = false)
     @OneToOne
     private Factory factory;
-    @JoinColumn(name = "user_id",referencedColumnName = "id",insertable = false,updatable = false)
-    @OneToOne
-    private WorkUser workUser;
 
     private Integer user_id;//管理员
 
@@ -47,7 +44,6 @@ public class Store implements Serializable {
                 ", address='" + address + '\'' +
                 ", factory_id=" + factory_id +
                 ", factory=" + factory +
-                ", workUser=" + workUser +
                 ", user_id=" + user_id +
                 ", phone='" + phone + '\'' +
                 ", orgId=" + orgId +
@@ -101,14 +97,6 @@ public class Store implements Serializable {
 
     public void setFactory(Factory factory) {
         this.factory = factory;
-    }
-
-    public WorkUser getWorkUser() {
-        return workUser;
-    }
-
-    public void setWorkUser(WorkUser workUser) {
-        this.workUser = workUser;
     }
 
     public Integer getUser_id() {

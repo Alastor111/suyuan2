@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 
 @Service
@@ -17,6 +18,11 @@ public class PurposeServiceImpl implements PurposeService {
     @Autowired
     public PurposeServiceImpl(PurposeRepository purposeRepository) {
         this.purposeRepository = purposeRepository;
+    }
+
+    @Override
+    public Optional<Purpose> findById(Integer id) {
+        return purposeRepository.findById(id);
     }
 
     public List<Purpose> findAllByOrgId(Integer orgId){

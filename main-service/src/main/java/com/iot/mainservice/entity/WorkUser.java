@@ -19,9 +19,9 @@ public  class WorkUser {
     private  Integer sex;
     @Column(name = "group_id")
     private Integer workGroupId;
-    @OneToOne(targetEntity = WorkGroup.class)
-    @JoinColumn(name="group_id",referencedColumnName="id",insertable = false,updatable = false)
-    private WorkGroup workGroup;
+//    @OneToOne(targetEntity = WorkGroup.class)
+//    @JoinColumn(name="group_id",referencedColumnName="id",insertable = false,updatable = false)
+//    private WorkGroup workGroup;
     
     private  String imgurl;
 
@@ -41,7 +41,6 @@ public  class WorkUser {
                 ", phone='" + phone + '\'' +
                 ", sex=" + sex +
                 ", workGroupId=" + workGroupId +
-                ", workGroup=" + workGroup +
                 ", imgurl='" + imgurl + '\'' +
                 ", orgId=" + orgId +
                 ", areaId='" + areaId + '\'' +
@@ -91,9 +90,6 @@ public  class WorkUser {
         this.sex = sex;
     }
 
-    public void setWorkGroup(WorkGroup workGroup) {
-        this.workGroup = workGroup;
-    }
 
     public void setImgurl(String imgurl) {
         this.imgurl = imgurl;
@@ -122,12 +118,6 @@ public  class WorkUser {
     public  Integer getSex() {
         return this.sex;
     }
-
-
-    public WorkGroup getWorkGroup() {
-        return this.workGroup;
-    }
-
 
     public  String getImgurl() {
         return this.imgurl;
